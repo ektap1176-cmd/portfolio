@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { createElement, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "../pages/home/Home";
 import About from "../pages/about/About";
@@ -6,6 +6,7 @@ import Services from "../pages/service/Services";
 import TechStack from "../pages/techStack/TechStack";
 import Experience from "../pages/experience/Experience";
 import RecentWorks from "../pages/recentWorks/RecentWorks";
+import Contact from "../pages/contact/Contact";
 
 const sections = [
   { id: "home", Component: Home },
@@ -14,6 +15,7 @@ const sections = [
   { id: "tech", Component: TechStack },
   { id: "experience", Component: Experience },
   { id: "works", Component: RecentWorks },
+  { id: "contact", Component: Contact },
 ];
 
 const routes = [
@@ -23,6 +25,7 @@ const routes = [
   { path: "/tech-stack", sectionId: "tech" },
   { path: "/experience", sectionId: "experience" },
   { path: "/works", sectionId: "works" },
+  { path: "/contact", sectionId: "contact" },
 ];
 
 const SectionedPage = ({ darkMode }) => {
@@ -42,9 +45,9 @@ const SectionedPage = ({ darkMode }) => {
 
   return (
     <div>
-      {sections.map(({ id, Component }) => (
+      {sections.map(({ id, Component: SectionComponent }) => (
         <section key={id} id={id}>
-          <Component darkMode={darkMode} />
+          {createElement(SectionComponent, { darkMode })}
         </section>
       ))}
     </div>

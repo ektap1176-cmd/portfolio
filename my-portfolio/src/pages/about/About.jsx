@@ -14,10 +14,10 @@ const skillChips = [
 ];
 
 const stats = [
-  { value: "01+", label: "Years Learning Web Dev", Icon: FiAward },
-  { value: "15+", label: "Practice Projects", Icon: FiCode },
-  { value: "10+", label: "Technologies Used", Icon: FiLayers },
-  { value: "01", label: "Major Training Program", Icon: FiUsers },
+  { value: 1, suffix: "+", label: "Years Learning Web Dev", Icon: FiAward },
+  { value: 15, suffix: "+", label: "Practice Projects", Icon: FiCode },
+  { value: 10, suffix: "+", label: "Technologies Used", Icon: FiLayers },
+  { value: 1, suffix: "", label: "Major Training Program", Icon: FiUsers },
 ];
 
 const About = () => {
@@ -61,12 +61,15 @@ const About = () => {
       </div>
 
       <div className="about-stats">
-        {stats.map(({ value, label, Icon }) => (
+        {stats.map(({ value, suffix, label, Icon }) => (
           <article key={label} className="about-stat panel">
             <div className="about-stat-icon" aria-hidden="true">
               {createElement(Icon)}
             </div>
-            <p className="about-stat-value">{value}</p>
+            <p className="about-stat-value">
+              {value}
+              {suffix}
+            </p>
             <p className="about-stat-label">{label}</p>
           </article>
         ))}

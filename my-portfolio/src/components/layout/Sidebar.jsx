@@ -1,12 +1,25 @@
+import { createElement } from "react";
+import {
+  FaEnvelope,
+  FaFolderOpen,
+  FaGraduationCap,
+  FaHouse,
+  FaMoon,
+  FaSun,
+  FaToolbox,
+  FaUser,
+  FaBriefcase,
+} from "react-icons/fa6";
 import { NavLink, useLocation } from "react-router-dom";
 
 const navItems = [
-  { to: "/", label: "Home", shortLabel: "🏠", sectionId: "home" },
-  { to: "/about", label: "About", shortLabel: "👤", sectionId: "about" },
-  { to: "/services", label: "Services", shortLabel: "💼", sectionId: "services" },
-  { to: "/tech-stack", label: "Tech Stack", shortLabel: "🧰", sectionId: "tech" },
-  { to: "/experience", label: "Experience", shortLabel: "🎓", sectionId: "experience" },
-  { to: "/works", label: "Recent Works", shortLabel: "🗂️", sectionId: "works" },
+  { to: "/", label: "Home", Icon: FaHouse, sectionId: "home" },
+  { to: "/about", label: "About", Icon: FaUser, sectionId: "about" },
+  { to: "/services", label: "Services", Icon: FaBriefcase, sectionId: "services" },
+  { to: "/tech-stack", label: "Tech Stack", Icon: FaToolbox, sectionId: "tech" },
+  { to: "/experience", label: "Experience", Icon: FaGraduationCap, sectionId: "experience" },
+  { to: "/works", label: "Recent Works", Icon: FaFolderOpen, sectionId: "works" },
+  { to: "/contact", label: "Contact", Icon: FaEnvelope, sectionId: "contact" },
 ];
 
 const Sidebar = ({ darkMode, setDarkMode }) => {
@@ -21,7 +34,7 @@ const Sidebar = ({ darkMode, setDarkMode }) => {
     borderRadius: "10px",
     textDecoration: "none",
     fontWeight: "700",
-    fontSize: "16px",
+    fontSize: "18px",
     color: "inherit",
   };
 
@@ -67,7 +80,7 @@ const Sidebar = ({ darkMode, setDarkMode }) => {
           padding: "10px",
         }}
       >
-        KW
+        EP
       </div>
 
       <nav
@@ -84,7 +97,7 @@ const Sidebar = ({ darkMode, setDarkMode }) => {
               ...baseNavItemStyle,
               ...(isActive ? activeNavItemStyle : null),
             })}
-            onClick={(event) => { 
+            onClick={(event) => {
               if (location.pathname === item.to) {
                 event.preventDefault();
                 scrollToSection(item.sectionId);
@@ -93,7 +106,7 @@ const Sidebar = ({ darkMode, setDarkMode }) => {
               setTimeout(() => scrollToSection(item.sectionId), 0);
             }}
           >
-            {item.shortLabel}
+            {createElement(item.Icon)}
           </NavLink>
         ))}
       </nav>
@@ -111,7 +124,7 @@ const Sidebar = ({ darkMode, setDarkMode }) => {
         aria-label="Toggle theme"
         title="Toggle theme"
       >
-        {darkMode ? "☀️" : "🌙"}
+        {darkMode ? createElement(FaSun) : createElement(FaMoon)}
       </button>
     </aside>
   );

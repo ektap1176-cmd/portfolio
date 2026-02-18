@@ -18,6 +18,12 @@ const socialItems = [
 ];
 
 const Home = () => {
+  const scrollToContact = () => {
+    const target = document.getElementById("contact");
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section id="home" className="home-section retro-surface">
       <div className="home-sticker home-sticker-ts" aria-hidden="true">
@@ -52,7 +58,7 @@ const Home = () => {
           ))}
         </div>
 
-        <button type="button" className="home-cta panel">
+        <button type="button" className="home-cta panel" onClick={scrollToContact}>
           LET&apos;S TALK
         </button>
       </div>
