@@ -1,5 +1,5 @@
 ﻿import { createElement, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Home from "../pages/home/Home";
 import About from "../pages/about/About";
 import Services from "../pages/service/Services";
@@ -35,6 +35,18 @@ const routes = [
 
 const SectionedPage = ({ darkMode }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const navEntry = performance.getEntriesByType("navigation")[0];
+    const isReload =
+      navEntry?.type === "reload" ||
+      (performance.navigation && performance.navigation.type === 1);
+
+    if (isReload && location.pathname !== "/") {
+      navigate("/", { replace: true });
+    }
+  }, [location.pathname, navigate]);
 
   useEffect(() => {
     const match = routes.find((route) => route.path === location.pathname);
