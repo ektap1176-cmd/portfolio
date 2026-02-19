@@ -1,4 +1,4 @@
-import { createElement, useEffect } from "react";
+﻿import { createElement, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "../pages/home/Home";
 import About from "../pages/about/About";
@@ -6,7 +6,9 @@ import Services from "../pages/service/Services";
 import TechStack from "../pages/techStack/TechStack";
 import Experience from "../pages/experience/Experience";
 import RecentWorks from "../pages/recentWorks/RecentWorks";
+import Blog from "../pages/blog/Blog";
 import Contact from "../pages/contact/Contact";
+import Recommendation from "../pages/recommendation/Recommendation";
 
 const sections = [
   { id: "home", Component: Home },
@@ -15,6 +17,8 @@ const sections = [
   { id: "tech", Component: TechStack },
   { id: "experience", Component: Experience },
   { id: "works", Component: RecentWorks },
+  { id: "blog", Component: Blog },
+  { id: "recommend", Component: Recommendation },
   { id: "contact", Component: Contact },
 ];
 
@@ -25,6 +29,7 @@ const routes = [
   { path: "/tech-stack", sectionId: "tech" },
   { path: "/experience", sectionId: "experience" },
   { path: "/works", sectionId: "works" },
+  { path: "/blog", sectionId: "blog" },
   { path: "/contact", sectionId: "contact" },
 ];
 
@@ -69,3 +74,5 @@ const AppRoutes = ({ darkMode }) => {
 };
 
 export default AppRoutes;
+
+

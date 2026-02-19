@@ -33,32 +33,40 @@ const workItems = [
 const Experience = () => {
   return (
     <section id="experience" className="experience-section">
-      <div className="panel experience-panel">
-        <div className="experience-header">
-          <span className="experience-kicker">//</span>
-          <h2 className="experience-title">EXPERIENCE</h2>
-          <span className="experience-dot" aria-hidden="true" />
-        </div>
+      <span className="experience-sticker experience-sticker-one" aria-hidden="true" />
+      <span className="experience-sticker experience-sticker-two" aria-hidden="true" />
+      <span className="experience-sticker experience-sticker-three" aria-hidden="true" />
 
+      <div className="experience-header">
+        <span className="experience-kicker">//</span>
+        <h2 className="experience-title">EXPERIENCE</h2>
+        <span className="experience-dot" aria-hidden="true" />
+      </div>
+
+      <div className="panel experience-panel">
         <div className="experience-grid">
           <div className="experience-column panel">
             <div className="experience-column-title">Education & Training</div>
             <div className="experience-timeline">
               {educationItems.map((item) => (
-                <div key={item.title} className="experience-item">
-                  <div className="experience-icon" aria-hidden="true">
-                    {createElement(FiBookOpen)}
+                <article key={item.title} className="experience-item panel">
+                  <div className="experience-item-head">
+                    <div className="experience-icon" aria-hidden="true">
+                      {createElement(FiBookOpen)}
+                    </div>
+                    <div>
+                      <div className="experience-date">{item.subtitle}</div>
+                      <div className="experience-role">{item.title}</div>
+                    </div>
                   </div>
                   <div className="experience-content">
-                    <div className="experience-date">{item.subtitle}</div>
-                    <div className="experience-role">{item.title}</div>
                     {item.details.map((line) => (
                       <div key={line} className="experience-text">
                         {line}
                       </div>
                     ))}
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
@@ -67,20 +75,24 @@ const Experience = () => {
             <div className="experience-column-title">Work</div>
             <div className="experience-timeline">
               {workItems.map((item) => (
-                <div key={item.title} className="experience-item">
-                  <div className="experience-icon" aria-hidden="true">
-                    {createElement(FiBriefcase)}
+                <article key={item.title} className="experience-item panel">
+                  <div className="experience-item-head">
+                    <div className="experience-icon" aria-hidden="true">
+                      {createElement(FiBriefcase)}
+                    </div>
+                    <div>
+                      <div className="experience-date">{item.subtitle}</div>
+                      <div className="experience-role">{item.title}</div>
+                    </div>
                   </div>
                   <div className="experience-content">
-                    <div className="experience-date">{item.subtitle}</div>
-                    <div className="experience-role">{item.title}</div>
                     {item.details.map((line) => (
                       <div key={line} className="experience-text">
                         {line}
                       </div>
                     ))}
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>

@@ -9,6 +9,7 @@ import {
   FaToolbox,
   FaUser,
   FaBriefcase,
+  FaBookOpen,
 } from "react-icons/fa6";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -19,6 +20,7 @@ const navItems = [
   { to: "/tech-stack", label: "Tech Stack", Icon: FaToolbox, sectionId: "tech" },
   { to: "/experience", label: "Experience", Icon: FaGraduationCap, sectionId: "experience" },
   { to: "/works", label: "Recent Works", Icon: FaFolderOpen, sectionId: "works" },
+  { to: "/blog", label: "Blog", Icon: FaBookOpen, sectionId: "blog" },
   { to: "/contact", label: "Contact", Icon: FaEnvelope, sectionId: "contact" },
 ];
 
@@ -26,21 +28,24 @@ const Sidebar = ({ darkMode, setDarkMode }) => {
   const location = useLocation();
 
   const baseNavItemStyle = {
-    width: "44px",
-    height: "44px",
+    width: "48px",
+    height: "48px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: "10px",
+    borderRadius: "14px",
     textDecoration: "none",
     fontWeight: "700",
     fontSize: "18px",
     color: "inherit",
+    border: darkMode ? "1px solid #2a3a5d" : "1px solid #ccd5ea",
+    boxShadow: darkMode ? "0 10px 20px rgba(2, 6, 23, 0.35)" : "0 8px 16px rgba(24, 39, 75, 0.14)",
+    background: darkMode ? "rgba(17, 27, 51, 0.7)" : "rgba(248, 250, 255, 0.75)",
   };
 
   const activeNavItemStyle = {
-    outline: darkMode ? "2px solid #334155" : "2px solid #cbd5f5",
-    backgroundColor: darkMode ? "#1e293b" : "#e8eaf6",
+    outline: darkMode ? "2px solid #7f9ad9" : "2px solid #8aa2dc",
+    backgroundColor: darkMode ? "#273554" : "#eaf0ff",
   };
 
   const scrollToSection = (sectionId) => {
@@ -56,18 +61,21 @@ const Sidebar = ({ darkMode, setDarkMode }) => {
       className="sidebar"
       data-theme={darkMode ? "dark" : "light"}
       style={{
-        width: "90px",
+        width: "96px",
         height: "100vh",
         position: "fixed",
         left: 0,
         top: 0,
         zIndex: 20,
-        backgroundColor: darkMode ? "#0f172a" : "#f5f1e8",
+        background: darkMode
+          ? "linear-gradient(180deg, rgba(11,18,37,0.94), rgba(12,26,52,0.92))"
+          : "linear-gradient(180deg, rgba(247, 241, 227, 0.94), rgba(241, 246, 255, 0.92))",
         color: darkMode ? "#fff" : "#000",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        borderRight: darkMode ? "1px solid #1e293b" : "1px solid #ddd",
+        borderRight: darkMode ? "1px solid #334872" : "1px solid #ced7ea",
+        backdropFilter: "blur(10px)",
       }}
     >
       <div
@@ -76,8 +84,11 @@ const Sidebar = ({ darkMode, setDarkMode }) => {
           marginBottom: "40px",
           fontWeight: "900",
           fontSize: "18px",
-          border: "2px solid currentColor",
-          padding: "10px",
+          border: darkMode ? "2px solid #8ca0d4" : "2px solid #1a2040",
+          background: darkMode ? "#1d2c4d" : "#f7db4f",
+          boxShadow: darkMode ? "5px 5px 0 #030712" : "5px 5px 0 #1a2040",
+          borderRadius: "10px",
+          padding: "10px 11px",
         }}
       >
         EP

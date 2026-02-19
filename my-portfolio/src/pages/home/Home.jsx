@@ -9,6 +9,7 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import { SiTypescript } from "react-icons/si";
+import logoE from "../../assets/logo-e.png";
 
 const socialItems = [
   { name: "LinkedIn", Icon: FaLinkedinIn },
@@ -42,7 +43,9 @@ const Home = () => {
       <div className="home-center">
         <div className="home-avatar-wrap panel">
           <div className="home-avatar-ring">
-            <div className="home-avatar">EP</div>
+            <div className="home-avatar">
+              <img src={logoE} alt="Ekta Poonia logo" className="home-avatar-image" />
+            </div>
           </div>
         </div>
 
