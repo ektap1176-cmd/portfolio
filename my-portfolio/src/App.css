@@ -39,6 +39,20 @@
   overflow: hidden;
 }
 
+.app-background-lite {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 15% 18%, rgba(125, 211, 252, 0.22), transparent 46%),
+    radial-gradient(circle at 84% 12%, rgba(244, 114, 182, 0.2), transparent 44%),
+    linear-gradient(160deg, #eef3ff 0%, #f6f9ff 45%, #eff5ff 100%);
+}
+
+.app[data-theme="dark"] .app-background-lite {
+  background: radial-gradient(circle at 18% 18%, rgba(45, 212, 191, 0.18), transparent 45%),
+    radial-gradient(circle at 86% 14%, rgba(129, 140, 248, 0.2), transparent 42%),
+    linear-gradient(165deg, #0b1731 0%, #101f3f 52%, #0a1933 100%);
+}
+
 .bg-ambient {
   position: absolute;
   inset: -12%;
@@ -1826,6 +1840,46 @@
 
 .app[data-theme="dark"] .experience-column {
   background: linear-gradient(165deg, rgba(23, 37, 66, 0.92), rgba(30, 58, 95, 0.82));
+}
+
+.app[data-performance="lite"] .motion-ready {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.app[data-performance="lite"] .panel {
+  box-shadow: 4px 5px 0 var(--line);
+}
+
+.app[data-performance="lite"] .home-sticker,
+.app[data-performance="lite"] .blog-shape,
+.app[data-performance="lite"] .recommend-shape,
+.app[data-performance="lite"] .contact-shape,
+.app[data-performance="lite"] .tech-stack-sticker,
+.app[data-performance="lite"] .experience-sticker {
+  display: none;
+}
+
+.app[data-performance="lite"] .tech-stack-section::before,
+.app[data-performance="lite"] .tech-stack-section::after,
+.app[data-performance="lite"] .experience-section::before,
+.app[data-performance="lite"] .tech-stack-panel::after,
+.app[data-performance="lite"] .experience-panel::after {
+  animation: none;
+  content: none;
+}
+
+.app[data-performance="lite"] .sidebar-nav-link,
+.app[data-performance="lite"] .works-card,
+.app[data-performance="lite"] .blog-card,
+.app[data-performance="lite"] .recommend-card,
+.app[data-performance="lite"] .contact-info,
+.app[data-performance="lite"] .contact-form,
+.app[data-performance="lite"] .home-center,
+.app[data-performance="lite"] .home-social-btn,
+.app[data-performance="lite"] .home-cta {
+  transition: none;
 }
 
 /* Responsive */
