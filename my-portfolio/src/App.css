@@ -164,6 +164,11 @@
   outline-offset: 3px;
 }
 
+.sidebar-hamburger,
+.sidebar-backdrop {
+  display: none;
+}
+
 /* Shared section container */
 .home-section,
 .about-section,
@@ -1874,11 +1879,58 @@
 
 @media (max-width: 768px) {
   .app {
-    --sidebar-width: 74px;
+    --sidebar-width: 0px;
   }
 
   .app-content {
-    width: calc(100% - var(--sidebar-width));
+    margin-left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+
+  .sidebar-hamburger {
+    display: inline-flex;
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    left: auto;
+    z-index: 40;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 4px 5px 0 var(--line);
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--text-main);
+    cursor: pointer;
+  }
+
+  .app[data-theme="dark"] .sidebar-hamburger {
+    background: rgba(15, 27, 52, 0.92);
+  }
+
+  .sidebar {
+    transform: translateX(-110%);
+    transition: transform 240ms ease;
+    width: min(84vw, 320px) !important;
+    z-index: 35 !important;
+  }
+
+  .sidebar.sidebar-mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    border: 0;
+    background: rgba(2, 6, 23, 0.4);
+    cursor: pointer;
   }
 
   .home-center {
@@ -1895,7 +1947,7 @@
   }
 
   .tech-stack-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .works-grid {
@@ -1908,6 +1960,23 @@
 
   .about-stats {
     grid-template-columns: 1fr;
+  }
+
+  .tech-stack-panel,
+  .experience-panel,
+  .works-panel,
+  .recommend-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .tech-stack-card-top {
+    gap: 8px;
+  }
+
+  .tech-stack-track {
+    white-space: nowrap;
   }
 }
 
@@ -1970,6 +2039,14 @@
 
   .experience-section {
     padding-top: 26px;
+  }
+
+  .works-preview {
+    min-height: 190px;
+  }
+
+  .recommend-quote {
+    font-size: 15px;
   }
 }
 
